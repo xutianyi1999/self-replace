@@ -9,10 +9,7 @@ use std::ptr;
 use std::thread;
 use std::time::Duration;
 
-use windows_sys::Win32::Foundation::{
-    CloseHandle, DuplicateHandle, DUPLICATE_SAME_ACCESS, GENERIC_READ, HANDLE,
-    INVALID_HANDLE_VALUE, MAX_PATH, WAIT_OBJECT_0,
-};
+use windows_sys::Win32::Foundation::{CloseHandle, DuplicateHandle, DUPLICATE_SAME_ACCESS, GENERIC_READ, HANDLE, INVALID_HANDLE_VALUE, MAX_PATH, WAIT_OBJECT_0, LocalFree};
 use windows_sys::Win32::Security::SECURITY_ATTRIBUTES;
 use windows_sys::Win32::Storage::FileSystem::{
     CreateFileW, DeleteFileW, FILE_FLAG_DELETE_ON_CLOSE, FILE_SHARE_DELETE, FILE_SHARE_READ,
@@ -20,7 +17,6 @@ use windows_sys::Win32::Storage::FileSystem::{
 };
 use windows_sys::Win32::System::Environment::GetCommandLineW;
 use windows_sys::Win32::System::LibraryLoader::GetModuleFileNameW;
-use windows_sys::Win32::System::Memory::LocalFree;
 use windows_sys::Win32::System::Threading::{
     CreateProcessA, ExitProcess, GetCurrentProcess, WaitForSingleObject, CREATE_NO_WINDOW,
     INFINITE, PROCESS_INFORMATION, STARTUPINFOA,
